@@ -1,0 +1,25 @@
+# Ignore all files in the models directory
+models/*
+
+# Except for the model.txt file inside the models directory
+!models/models.txt
+
+# Ignore env 
+/env/
+.env
+.venv
+
+# Ignore the data folder
+/data/Software.json
+
+# Ignore __pycache__
+**/__pycache__/
+
+# Ignore Python files starting with "test"
+test*.py
+
+# Exclude .sqlite files
+*.sqlite
+
+#Exclude logs folder 
+logs
