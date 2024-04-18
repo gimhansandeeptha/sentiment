@@ -19,7 +19,7 @@ class Model(ABC):
         pass
 
     @abstractmethod
-    def validate(self, validation_loader):
+    def validate(self, validation_loader)-> float:
         pass
 
     @abstractmethod

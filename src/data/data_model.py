@@ -1,13 +1,16 @@
 import pandas as pd 
+import numpy as np
 
 class ServicenowData:
     def __init__(self) -> None:
         self.data: pd.DataFrame = None
         self.iter_index = 0
 
-    def load_data(self, json_response:list):
+    def load_data(self, json_response:list): 
         # Data loading logic 
         pass
+    def load_test_data(self, df):
+        self.data = df
 
     def insert_field(self, column_name:str):
         if column_name not in self.data.columns:
@@ -37,6 +40,10 @@ class ServicenowData:
         
     def get_data(self):
         return self.data
+    
+    def get_column(self, column_name:str) -> np.array:
+        column_array = self.data[column_name].to_numpy()
+        return column_array
     
     def filed_names(self)->list:
         if self.data is not None:

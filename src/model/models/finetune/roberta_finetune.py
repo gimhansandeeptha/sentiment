@@ -15,13 +15,13 @@ class RobertaFinetune():
         return n_correct
 
     # Finetuning loop
-    def finetune(self, training_loader, device='cpu', epochs=3):        
+    def finetune(self, training_loader, device='cpu', epochs=3):
+        self.model.train()     
         for epoch in range(epochs):
             tr_loss = 0
             n_correct = 0
             nb_tr_steps = 0
             nb_tr_examples = 0
-            self.model.train()
 
             for _, data in tqdm(enumerate(training_loader, 0)):
                 ids = data['ids'].to(device, dtype=torch.long)

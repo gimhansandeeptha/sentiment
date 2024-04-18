@@ -23,3 +23,5 @@ test*.py
 
 #Exclude logs folder 
 logs
+
+.vscode
