@@ -6,9 +6,10 @@ class ServicenowData:
         self.data: pd.DataFrame = None
         self.iter_index = 0
 
-    def load_data(self, json_response:list): 
-        # Data loading logic 
+    def load_data(self, json_response: list): 
+        # Data loading logic
         pass
+
     def load_test_data(self, df):
         self.data = df
 
