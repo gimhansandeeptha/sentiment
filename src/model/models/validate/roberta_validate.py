@@ -1,12 +1,12 @@
 import torch
-import tqdm
+from tqdm import tqdm
 
 class RobertaValidate:
     def __init__(self, model, loss_function) -> None:
         self.model = model
         self.loss_function = loss_function
 
-    def calculate_accuracy(self,preds, targets):
+    def _calculate_accuracy(self,preds, targets):
         n_correct = (preds==targets).sum().item()
         return n_correct
     
@@ -28,18 +28,11 @@ class RobertaValidate:
                 loss = self.loss_function(outputs, targets)
                 val_loss += loss.item()
                 big_val, big_idx = torch.max(outputs.data, dim=1)
-                n_correct += self.calculate_accuracy(big_idx, targets)
+                n_correct += self._calculate_accuracy(big_idx, targets)
 
                 nb_val_steps += 1
                 nb_val_examples += targets.size(0)
 
         val_accuracy = (n_correct * 100) / nb_val_examples
         val_loss /= nb_val_steps
-
-        if val_loss < self.min_val_loss:
-            self.min_val_loss=val_loss
-            self.best_model = self.model.state_dict()
-            self.no_improvement_count = 0
-        else:
-            self.no_improvement_count += 1
         return val_loss

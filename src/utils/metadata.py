@@ -10,9 +10,9 @@ class Metadata:
         with open(self.metadata_file_name, 'r',encoding='utf-8') as file:
             data: dict = json.load(file)
 
-        value = None
+        value = data
         for key in keys:
-            value = data[key]
+            value = value[key]
         return value
         
     def set_value(self, keys:list[str], new_value):

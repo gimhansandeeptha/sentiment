@@ -7,5 +7,5 @@ data = ServicenowData()
 data.load_test_data(df)
 
 main = ModelProcess()
-main.inference_process(data)
-print(data.get_data())
+main.finetune_process(data)
+# print(data.get_data())

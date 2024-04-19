@@ -15,6 +15,7 @@ class RobertaInference():
         self.model.eval()
         result =[]
         for _, data in tqdm(enumerate(inference_loader, 0)):
+            predicted_class = None
             ids = data['ids'].to(self.device, dtype=torch.long)
             mask = data['mask'].to(self.device, dtype=torch.long)
             token_type_ids = data['token_type_ids'].to(self.device, dtype=torch.long)
@@ -23,11 +24,7 @@ class RobertaInference():
                 output = self.model(ids, mask, token_type_ids)
             _, predicted_class = torch.max(output, dim=1)
 
-            sentiment = None
-            if predicted_class == 0: sentiment = "Negative"
-            elif predicted_class == 1: sentiment = "Neutral"
-            elif predicted_class == 2: sentiment = "Positive"
-            result.append(sentiment)
+            result.append(predicted_class)
         result = np.array(result)
         return result
     

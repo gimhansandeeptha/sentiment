@@ -54,7 +54,7 @@ class RobertaModel(Model):
                         }
         finetune_loader = DataLoader(finetune_data, **train_params)
         finetune = RobertaFinetune(self.model, self.optimizer, self.loss_function)
-        self.model = finetune.finetune(self.model, finetune_loader)
+        self.model = finetune.finetune(finetune_loader)
 
     def validate(self, texts: np.array, sentiments: np.array) -> float:
         validate_data = RobertaTrainSentimentData(texts, sentiments, self.tokenizer, self.max_len)

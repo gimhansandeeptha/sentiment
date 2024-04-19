@@ -1,5 +1,5 @@
 import torch
-import tqdm
+from tqdm import tqdm
 
 class RobertaFinetune():
     def __init__(self, model: torch.nn.Module, optimizer, loss_function, early_stopping_patience=3) -> None:
