@@ -123,8 +123,8 @@ def service_now_refresh_token():
     client_secret = config["CLIENT_SECRET"] # os.getenv("CLIENT_SECRET")
 
     # Get access and referesh tokens (Assuming that access and refresh tokens have obtained earlier and they are avilable in environmental variables)
-    access_token =config.get("ACCESS_TOKEN", None) #os.getenv("ACCESS_TOKEN")
-    referesh_token = config("REFRESH_TOKEN", None) #os.getenv("REFRESH_TOKEN") 
+    access_token = config.get("ACCESS_TOKEN", None) #os.getenv("ACCESS_TOKEN")
+    referesh_token = config.get("REFRESH_TOKEN", None) #os.getenv("REFRESH_TOKEN") 
 
     # Additional parameters needed for token retrieval
     token_params = {

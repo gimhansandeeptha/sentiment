@@ -4,7 +4,7 @@ from datetime import datetime
 from src.model.models.model import Model
 from src.model.models.roberta_model import RobertaModel
 from src.utils.metadata import Metadata
-from src.data.data_model import ServicenowData
+from src.utils.data_model import ServicenowData
 from src.model.preprocess.roberta_dataloader import RobertaTrainSentimentData
 from src.model.preprocess.roberta_sentiment_converter import RobertaSentimentConverter
 

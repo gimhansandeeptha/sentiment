@@ -9,7 +9,7 @@ from src.model.models.validate.roberta_validate import RobertaValidate
 from src.model.models.roberta import RobertaClass
 from src.model.models.inference.roberta_inference import RobertaInference
 from src.model.preprocess.roberta_dataloader import RobertaInferenceSentimentData, RobertaTrainSentimentData
-from src.data.data_model import ServicenowData
+from src.utils.data_model import ServicenowData
 
 """Concreate factory for Roberta models"""
 class RobertaModel(Model):

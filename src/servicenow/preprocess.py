@@ -1,11 +1,10 @@
+import json
 from src.servicenow.comment_request import get_customer_comments
 
 def extract_messages(response):
     ''' Return two dimentional array, fist dimention is the account name and the second dimention is liat of comments
         Both the dimentions can be empty.
     '''
-    # case_comments=[]
-
     try:
         data = response.json()
     except ValueError:
@@ -43,9 +42,9 @@ def extract_messages(response):
     return extracted_cases
 
 
-# query_params = {
-#         "startDate": "2024-03-11",
-#         "endDate": "2024-03-11"
-#     }
+query_params = {
+        "startDate": "2024-03-11",
+        "endDate": "2024-03-11"
+    }
 
-# print(extract_messages(get_customer_comments(query_params)))
+print(extract_messages(get_customer_comments(query_params)))
